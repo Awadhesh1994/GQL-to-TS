@@ -22,10 +22,10 @@ column: number;
 
 interface IQuery {
 __typename: "Query";
-hello: string;
+signUp: string;
 }
 
-interface IHelloOnQueryArguments {
+interface ISignUpOnQueryArguments {
 name?: string | null;
 }
 
