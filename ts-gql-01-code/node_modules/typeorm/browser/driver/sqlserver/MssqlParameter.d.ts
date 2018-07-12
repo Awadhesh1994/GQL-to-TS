@@ -39,4 +39,5 @@ export declare class MssqlParameter {
     constructor(value: any, type: "udt");
     constructor(value: any, type: "geography");
     constructor(value: any, type: "geometry");
+    constructor(value: any, type: "rowversion");
 }

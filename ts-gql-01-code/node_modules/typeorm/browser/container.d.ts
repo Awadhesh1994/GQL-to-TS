@@ -11,24 +11,17 @@ export interface UseContainerOptions {
      */
     fallbackOnErrors?: boolean;
 }
-/**
- * Container to be used by this library for inversion control. If container was not implicitly set then by default
- * container simply creates a new instance of the given class.
- */
-export declare const defaultContainer: {
-    get<T>(someClass: {
-        new (...args: any[]): T;
-    } | Function): T;
-};
+export declare type ContainedType<T> = {
+    new (...args: any[]): T;
+} | Function;
+export interface ContainerInterface {
+    get<T>(someClass: ContainedType<T>): T;
+}
 /**
  * Sets container to be used by this library.
  */
-export declare function useContainer(iocContainer: {
-    get(someClass: any): any;
-}, options?: UseContainerOptions): void;
+export declare function useContainer(iocContainer: ContainerInterface, options?: UseContainerOptions): void;
 /**
  * Gets the IOC container used by this library.
  */
-export declare function getFromContainer<T>(someClass: {
-    new (...args: any[]): T;
-} | Function): T;
+export declare function getFromContainer<T>(someClass: ContainedType<T>): T;
